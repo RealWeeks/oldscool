@@ -3,10 +3,39 @@
     <!-- <Portfolio/> -->
     <Jason class="jason-text"/>
     <div class="fake-terminal">
-      <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper :textSpeed="200" text="Hello..."></VueTinytyper></div>
-      
+      <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
+        :textSpeed="150" 
+        text="Hello... Welcome to my portfolio"
+        @animation-finished="line1Done = true"
+        :staticCursor="!line1Done"
+        :cursor="';'"
+        ></VueTinytyper>
+      </div>
+
+      <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
+        :textSpeed="150" 
+        text="Your cursor has been disabled. Please your your keyboard to navigate"
+        @animation-finished="line2Done = true"
+        :cursor="';'"
+        ></VueTinytyper>
+      </div>
+
+      <div v-if="line2Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
+        :textSpeed="150" 
+        text="Let me get you started"
+        @animation-finished="line3Done = true"
+        :cursor="';'"
+        ></VueTinytyper>
+      </div>
+
+      <div v-if="line3Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
+        :textSpeed="150" 
+        text="/help"
+        @animation-finished="line2Done = true"
+        :cursor="';'"
+        ></VueTinytyper>
+      </div>
     </div>
-    <!-- <VueTinytyper text="Welcome to my portfolio"></VueTinytyper> -->
   </div>
 </template>
 
@@ -23,7 +52,14 @@ export default {
   },
   props: {
     msg: String
+  },
+  data: function () {
+  return {
+    line1Done: false,
+    line2Done: false,
+    line3Done: false
   }
+}
 }
 </script>
 
@@ -50,9 +86,10 @@ export default {
 .line1{
   flex-direction: row;
   display: flex;
+  margin-bottom: -10px;
 }
 .line1 p{
-  margin-top: 3px;
+  margin-top: 1px;
 }
 .tiny-typer-container{
   margin-left: 5px;
