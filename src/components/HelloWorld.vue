@@ -4,7 +4,7 @@
     <Jason class="jason-text"/>
     <div class="fake-terminal">
       <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="150" 
+        :textSpeed="50" 
         text="Hello... Welcome to my portfolio"
         @animation-finished="line1Done = true"
         :staticCursor="!line1Done"
@@ -13,7 +13,7 @@
       </div>
 
       <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="150" 
+        :textSpeed="50" 
         text="Your cursor has been disabled. Please your your keyboard to navigate"
         @animation-finished="line2Done = true"
         :cursor="';'"
@@ -21,7 +21,7 @@
       </div>
 
       <div v-if="line2Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="150" 
+        :textSpeed="50" 
         text="Let me get you started"
         @animation-finished="line3Done = true"
         :cursor="';'"
@@ -29,11 +29,19 @@
       </div>
 
       <div v-if="line3Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="150" 
+        :textSpeed="50" 
         text="/help"
-        @animation-finished="line2Done = true"
+        @animation-finished="line4Done = true"
         :cursor="';'"
         ></VueTinytyper>
+      </div>
+
+      <div class="commands" v-if="line4Done">
+      <div>Commands:</div>
+      <div>Projects           view personal projects created by me</div>
+      <div>Github             view my github page</div>
+      <div>Linkedin           view my linked page</div>
+      <div>Resume             view my resume</div>
       </div>
     </div>
   </div>
@@ -57,7 +65,8 @@ export default {
   return {
     line1Done: false,
     line2Done: false,
-    line3Done: false
+    line3Done: false,
+    line4Done: false
   }
 }
 }
@@ -65,6 +74,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=VT323');
 .splash{
   color: green;
   display: flex;
@@ -76,7 +86,8 @@ export default {
   margin-bottom: 5%;
 }
 .fake-terminal{
-  height: 300px;
+  font-family: 'VT323', monospace;
+  height: 400px;
   width: 80%;
   background-color: #1e1e23;
   display: flex;
@@ -86,12 +97,21 @@ export default {
 .line1{
   flex-direction: row;
   display: flex;
-  margin-bottom: -10px;
+  margin-bottom: 0px;
 }
 .line1 p{
   margin-top: 1px;
 }
 .tiny-typer-container{
   margin-left: 5px;
+}
+.commands{
+  font-family: 'VT323', monospace;
+  display: flex;
+  flex-direction: column;
+  white-space: pre;
+}
+.commands div:not(:first-child) {
+  margin-left: 15px;
 }
 </style>
