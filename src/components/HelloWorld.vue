@@ -3,7 +3,7 @@
     <Jason class="jason-text"/>
     <div class="fake-terminal">
       <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="50" 
+        :textSpeed="25" 
         text="Hello... Welcome to my portfolio"
         @animation-finished="line1Done = true"
         :staticCursor="!line1Done"
@@ -12,7 +12,7 @@
       </div>
 
       <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="50" 
+        :textSpeed="25" 
         text="Your cursor has been disabled. Please your your keyboard"
         @animation-finished="line2Done = true"
         :staticCursor="!line2Done"
@@ -21,7 +21,7 @@
       </div>
 
       <div v-if="line2Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="50" 
+        :textSpeed="25" 
         text="Let me get you started"
         @animation-finished="line3Done = true"
         :cursor="';'"
@@ -30,7 +30,7 @@
       </div>
 
       <div v-if="line3Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="50" 
+        :textSpeed="25" 
         text="/help"
         @animation-finished="line4Done = true"
         :cursor="';'"
@@ -49,7 +49,7 @@
     </div>
 
      <div v-if="line4Done" class=term-text-wrapper>
-        <input ref="termInput" class="term-input-txt" type="text" placeholder="Type here. Press enter to submit.">
+        <input ref="termInput" @keyup.enter="handleSearch" v-model="searchText" class="term-input-txt" type="text" placeholder="Type here. Press enter to submit.">
       </div>
   </div>
 </template>
@@ -66,19 +66,33 @@ export default {
   props: {
     msg: String
   },
+  methods: {
+    handleSearch(){
+      let search = this.searchText
+      if (search.toLowerCase().includes('help')) {
+        // this.handleHelp()
+      }else if(search.toLowerCase().includes('projects')){
+        
+      }
+    },
+    // handleHelp() {
+
+    // }
+  },
   watch: {
     line4Done (){
       if (this.line4Done) {
         this.$nextTick(() => this.$refs.termInput.focus())
       }
-    }
+    },
   },
   data: function () {
   return {
     line1Done: false,
     line2Done: false,
     line3Done: false,
-    line4Done: false
+    line4Done: false,
+    searchText: 'Guest@developer-portfolio: '
   }
 }
 }
