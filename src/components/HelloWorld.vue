@@ -13,7 +13,7 @@
 
       <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
         :textSpeed="50" 
-        text="Your cursor has been disabled. Please your your keyboard to navigate"
+        text="Your cursor has been disabled. Please your your keyboard"
         @animation-finished="line2Done = true"
         :staticCursor="!line2Done"
         :cursor="';'"
@@ -40,10 +40,10 @@
 
       <div class="commands" v-if="line4Done">
         <div>Commands:</div>
-        <div>Projects           view personal projects created by me</div>
-        <div>Github             view my github page</div>
-        <div>Linkedin           view my linked page</div>
-        <div>Resume             view my resume</div>
+        <div>Projects               view personal projects created by me</div>
+        <div>Github                 view my github page</div>
+        <div>Linkedin               view my linked page</div>
+        <div>Resume                 view my resume</div>
       </div>
 
     </div>
@@ -86,7 +86,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=VT323');
+/* @import url('https://fonts.googleapis.com/css?family=VT323'); */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 .splash{
   color: green;
   display: flex;
@@ -98,7 +99,8 @@ export default {
   margin-bottom: 5%;
 }
 .fake-terminal{
-  font-family: 'VT323', monospace;
+  /* font-family: 'VT323', monospace; */
+  font-family: 'Roboto Mono', monospace;
   height: 400px;
   width: 80%;
   background-color: #1e1e23;
@@ -118,7 +120,8 @@ export default {
   margin-left: 5px;
 }
 .commands{
-  font-family: 'VT323', monospace;
+  /* font-family: 'VT323', monospace; */
+  font-family: 'Roboto Mono', monospace;
   display: flex;
   flex-direction: column;
   white-space: pre;
@@ -136,9 +139,10 @@ export default {
   height: 100%;
   padding: 0;
   font-size: medium;
+  font-family: 'Roboto Mono', monospace;
 }
 .term-text-wrapper{
-  font-family: 'VT323', monospace;
+  /* font-family: 'VT323', monospace; */
   width: 80%;
   height: 18px;
 }
