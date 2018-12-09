@@ -1,6 +1,5 @@
 <template>
   <div class="splash">
-    <!-- <Portfolio/> -->
     <Jason class="jason-text"/>
     <div class="fake-terminal">
       <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
@@ -16,6 +15,7 @@
         :textSpeed="50" 
         text="Your cursor has been disabled. Please your your keyboard to navigate"
         @animation-finished="line2Done = true"
+        :staticCursor="!line2Done"
         :cursor="';'"
         ></VueTinytyper>
       </div>
@@ -25,6 +25,7 @@
         text="Let me get you started"
         @animation-finished="line3Done = true"
         :cursor="';'"
+        :staticCursor="!line3Done"
         ></VueTinytyper>
       </div>
 
@@ -33,33 +34,44 @@
         text="/help"
         @animation-finished="line4Done = true"
         :cursor="';'"
+        :staticCursor="!line4Done"
         ></VueTinytyper>
       </div>
 
       <div class="commands" v-if="line4Done">
-      <div>Commands:</div>
-      <div>Projects           view personal projects created by me</div>
-      <div>Github             view my github page</div>
-      <div>Linkedin           view my linked page</div>
-      <div>Resume             view my resume</div>
+        <div>Commands:</div>
+        <div>Projects           view personal projects created by me</div>
+        <div>Github             view my github page</div>
+        <div>Linkedin           view my linked page</div>
+        <div>Resume             view my resume</div>
       </div>
+
     </div>
+
+     <div v-if="line4Done" class=term-text-wrapper>
+        <input ref="termInput" class="term-input-txt" type="text" placeholder="Type here. Press enter to submit.">
+      </div>
   </div>
 </template>
 
 <script>
-import Portfolio from './textart/portfolio.vue'
 import Jason from './textart/jason.vue'
 import VueTinytyper from 'vue-tinytyper';
 export default {
   name: 'HelloWorld',
   components: {
-    Portfolio,
     Jason,
     VueTinytyper
   },
   props: {
     msg: String
+  },
+  watch: {
+    line4Done (){
+      if (this.line4Done) {
+        this.$nextTick(() => this.$refs.termInput.focus())
+      }
+    }
   },
   data: function () {
   return {
@@ -113,5 +125,25 @@ export default {
 }
 .commands div:not(:first-child) {
   margin-left: 15px;
+}
+.term-input-txt{
+  width: 100%;
+  color: green;
+  border-right-width: 0px;
+  padding-right: 0px;
+  background-color: #1e1e22;
+  border: 0;
+  height: 100%;
+  padding: 0;
+  font-size: medium;
+}
+.term-text-wrapper{
+  font-family: 'VT323', monospace;
+  width: 80%;
+  height: 18px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color:green;
+  opacity: 1; /* Firefox */
 }
 </style>
