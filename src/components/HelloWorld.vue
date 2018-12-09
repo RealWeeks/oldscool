@@ -1,6 +1,7 @@
 <template>
   <div class="splash">
     <Jason class="jason-text"/>
+    <h4 @click="handleBale">Bale here</h4>
     <div class="fake-terminal">
       <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
         :textSpeed="25" 
@@ -72,9 +73,13 @@ export default {
       if (search.toLowerCase().includes('help')) {
         // this.handleHelp()
       }else if(search.toLowerCase().includes('projects')){
-        
+
       }
     },
+    handleBale() {
+      debugger
+      this.$router.push({ path: 'standard' })
+    }
     // handleHelp() {
 
     // }
