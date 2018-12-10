@@ -1,14 +1,6 @@
 <template>
-  <div class="standard">
-    <div class="img-wrapper">
-      <img class="image-back" src="../assets/code-screen.jpg">
-      <div class="centered">Hey, I'm Jason.</div>
-      <div class="centered-below">Thanks for visiting my portfolo.</div>
-      <div class="bottom-left">
-        <md-button @click="handleProject" class="md-raised md-primary">Projects</md-button>
-      </div>
-
-    </div>
+  <div class="project">
+    test
   </div>
 </template>
 
@@ -22,9 +14,6 @@ export default {
   props: {
   },
   methods: {
-    handleProject() {
-      this.$router.push({ path: '/standard/project' })
-    }
   },
   watch: {
   },

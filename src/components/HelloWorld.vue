@@ -3,8 +3,8 @@
     <Jason class="jason-text"/>
     <h4 @click="handleBale">Bale here</h4>
     <div class="fake-terminal">
-      <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="25" 
+      <div class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper
+        :textSpeed="75"
         text="Hello... Welcome to my portfolio"
         @animation-finished="line1Done = true"
         :staticCursor="!line1Done"
@@ -12,8 +12,8 @@
         ></VueTinytyper>
       </div>
 
-      <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="25" 
+      <div v-if="line1Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper
+        :textSpeed="75"
         text="Your cursor has been disabled. Please your your keyboard"
         @animation-finished="line2Done = true"
         :staticCursor="!line2Done"
@@ -21,8 +21,8 @@
         ></VueTinytyper>
       </div>
 
-      <div v-if="line2Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="25" 
+      <div v-if="line2Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper
+        :textSpeed="75"
         text="Let me get you started"
         @animation-finished="line3Done = true"
         :cursor="';'"
@@ -30,8 +30,8 @@
         ></VueTinytyper>
       </div>
 
-      <div v-if="line3Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper 
-        :textSpeed="25" 
+      <div v-if="line3Done" class="line1"><p>Jason@developer-portfolio:</p><VueTinytyper
+        :textSpeed="75"
         text="/help"
         @animation-finished="line4Done = true"
         :cursor="';'"
@@ -113,6 +113,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 .jason-text{
   margin-bottom: 5%;

@@ -23,6 +23,12 @@ export default new Router({
       path: '/standard',
       name: 'standard',
       component: () => import(/* webpackChunkName: "about" */ './views/standard.vue')
+    },
+    {
+      path: '/standard/project',
+      name: 'standardproject',
+      component: () => import(/* webpackChunkName: "about" */ './views/standardproject.vue')
     }
-  ]
+  ],
+  mode: 'history'
 })
