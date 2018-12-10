@@ -57,7 +57,7 @@
 
 <script>
 import Jason from './textart/jason.vue'
-import VueTinytyper from 'vue-tinytyper';
+import VueTinytyper from 'vue-tinytyper'
 export default {
   name: 'HelloWorld',
   components: {
@@ -68,15 +68,15 @@ export default {
     msg: String
   },
   methods: {
-    handleSearch(){
+    handleSearch () {
       let search = this.searchText
       if (search.toLowerCase().includes('help')) {
         // this.handleHelp()
-      }else if(search.toLowerCase().includes('projects')){
+      } else if (search.toLowerCase().includes('projects')) {
 
       }
     },
-    handleBale() {
+    handleBale () {
       debugger
       this.$router.push({ path: 'standard' })
     }
@@ -85,21 +85,21 @@ export default {
     // }
   },
   watch: {
-    line4Done (){
+    line4Done () {
       if (this.line4Done) {
         this.$nextTick(() => this.$refs.termInput.focus())
       }
-    },
+    }
   },
   data: function () {
-  return {
-    line1Done: false,
-    line2Done: false,
-    line3Done: false,
-    line4Done: false,
-    searchText: 'Guest@developer-portfolio: '
+    return {
+      line1Done: false,
+      line2Done: false,
+      line3Done: false,
+      line4Done: false,
+      searchText: 'Guest@developer-portfolio: '
+    }
   }
-}
 }
 </script>
 

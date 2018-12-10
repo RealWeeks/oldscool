@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import VueTinytyper from 'vue-tinytyper';
+import VueTinytyper from 'vue-tinytyper'
 export default {
   name: 'Projects',
   components: {
@@ -17,10 +17,10 @@ export default {
   watch: {
   },
   data: function () {
-  return {
+    return {
 
+    }
   }
-}
 }
 </script>
 

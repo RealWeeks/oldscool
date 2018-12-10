@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import VueTinytyper from 'vue-tinytyper';
+import VueTinytyper from 'vue-tinytyper'
 export default {
   name: 'Standard',
   components: {
@@ -22,17 +22,17 @@ export default {
   props: {
   },
   methods: {
-    handleProject() {
+    handleProject () {
       this.$router.push({ path: '/standard/project' })
     }
   },
   watch: {
   },
   data: function () {
-  return {
+    return {
 
+    }
   }
-}
 }
 </script>
 
